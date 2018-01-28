@@ -38,6 +38,6 @@ app.get('/', function(req, res){
 require('./api/routes/smsverifyRoute.js')(app);
 
 // listen for requests
-app.listen(3000, function(){
+app.listen(8080, function(){
     console.log("Server is listening on port 3000");
 });
