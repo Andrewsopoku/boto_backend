@@ -1,9 +1,10 @@
 var UsersInfo = require('../models/appModel.js');
 
-var crypto = require('crypto'),
+var crypto = require('crypto')
 var request = require("request");
-algorithm = 'aes-256-ctr',
+algorithm = 'aes-256-ctr';
 password = 'd6F3Efeq';
+
 
 function encrypt(text){
 var cipher = crypto.createCipher(algorithm,password)
@@ -59,11 +60,17 @@ exports.create = function(req, res) {
                 request.post(
                     {url:'http://107.20.199.106/api/v3/sendsms/plain?',
                     body : req.rawBody,
-                    headers: {'Content-Type': 'text/xml'}
+                    headers: {'Content-Type': 'aplication/xml'}
                     },
                     function (error, response, body) {        
                         if (!error && response.statusCode == 200) {
                             console.log(body)
+                        }
+                        else{
+                            console.log("Error")
+                            console.log(error)
+                            
+                            
                         }
                     }
                 );
