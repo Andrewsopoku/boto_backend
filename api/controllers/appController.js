@@ -1,7 +1,7 @@
 var UsersInfo = require('../models/appModel.js');
 
 var crypto = require('crypto'),
-
+var request = require("request");
 algorithm = 'aes-256-ctr',
 password = 'd6F3Efeq';
 
@@ -55,7 +55,18 @@ exports.create = function(req, res) {
 			 user[0].vcode=vcodegen
 			 
 			 UsersInfo.update({_id:user[0]._id}, {$set:{vcode:vcodegen}},function(err, data){
-            
+                 body='<?xml version="1.0" encoding="utf-8"?><Request><Head></Head><Body><username>opoku</username><password>ba33911357</password><type>longSMS</type><GSM>233548867947</GSM><sender>Boto</sender><SMSText>'+vcodegen+'</SMSText></Body></Request>'
+                request.post(
+                    {url:'http://107.20.199.106/api/v3/sendsms/plain?',
+                    body : req.rawBody,
+                    headers: {'Content-Type': 'text/xml'}
+                    },
+                    function (error, response, body) {        
+                        if (!error && response.statusCode == 200) {
+                            console.log(body)
+                        }
+                    }
+                );
              if(err) {
                 res.status(500).send({message: "Could not update note with id"});
              } 
