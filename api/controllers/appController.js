@@ -1,7 +1,7 @@
 var UsersInfo = require('../models/appModel.js');
 
 var crypto = require('crypto')
-var request = require("request");
+var axios = require("axios");
 algorithm = 'aes-256-ctr';
 password = 'd6F3Efeq';
 
@@ -113,23 +113,21 @@ exports.createWallet = function(req, res) {
         console.log("Phone can not be empty");
     }
    else {
-    request.post({url:'http://5.150.236.20:8081/operator/wallets',
-    headers:{'Content-Type':'application/json'},
-   form: {'password':" ss ssss sss sss ss"}},
-    function(err,response,body){ 
-       
-       if(err){
-          console.log(err); 
-       }
-       else{
-           
-           //var json = JSON.parse(body);
-           
+    
 
-          console.log(body)
-          res.send(body)
-       }
-       })
+
+
+
+       axios.post('http://5.150.236.20:8081/operator/wallets', {
+        password: 'red red red red red '
+        
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 }
     
     
