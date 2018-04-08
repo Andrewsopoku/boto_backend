@@ -138,6 +138,8 @@ exports.createWallet = function(req, res) {
         }
       }) .then(function (response1) {
         console.log(response1.data);
+        c=response.merge(response1)
+        res.send(c)
       })
       .catch(function (error) {
         console.log(error);
