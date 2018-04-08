@@ -115,7 +115,7 @@ exports.createWallet = function(req, res) {
    else {
     request.post({url:'http://5.150.236.20:8081/operator/wallets',
     headers:{},
-   form: {"password":req.body.password}},
+  },
     function(err,response,body){ 
        
        if(err){
