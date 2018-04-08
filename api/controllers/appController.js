@@ -104,3 +104,33 @@ exports.create = function(req, res) {
     
     
 };
+
+
+exports.createWallet = function(req, res) {
+    // Create and Save a new Note
+    if(!req.body.password) {
+        res.status(400).send({message: "Phone can not be empty"});
+        console.log("Phone can not be empty");
+    }
+   else {
+    request.post({url:'http://5.150.236.20:8081/operator/wallets',
+    headers:{},
+   form: {"password":req.body.password}},
+    function(err,response,body){ 
+       
+       if(err){
+          console.log(err); 
+       }
+       else{
+           
+           var json = JSON.parse(body);
+           
+
+          console.log(json)
+          res.send(json)
+       }
+       })
+}
+    
+    
+};

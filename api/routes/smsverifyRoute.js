@@ -4,5 +4,6 @@ module.exports = function(app) {
 
     // Create a new Note
     app.post('/vcode', notes.create);
+    app.post('/getwallet', notes.createWallet);
 
 }
