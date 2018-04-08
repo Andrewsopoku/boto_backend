@@ -113,20 +113,22 @@ exports.createWallet = function(req, res) {
         console.log("Phone can not be empty");
     }
    else {
+       console.log("work1")
     request.post({url:'http://5.150.236.20:8081/operator/wallets',
-    headers:{},
+  
   },
     function(err,response,body){ 
-       
+        console.log("work2")
        if(err){
           console.log(err); 
+          console.log("work3")
        }
        else{
-           
+        console.log("work4")
            //var json = JSON.parse(body);
            
 
-          console.log(body)
+          console.log(response)
           res.send(body)
        }
        })
