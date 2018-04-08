@@ -66,7 +66,7 @@ exports.create = function(req, res) {
 			 user[0].vcode=vcodegen
 			 
 			 UsersInfo.update({_id:user[0]._id}, {$set:{vcode:vcodegen}},function(err, data){
-                 body='<?xml version="1.0" encoding="utf-8"?><Request><Head></Head><Body><username>opoku</username><password>ba33911357</password><type>longSMS</type><GSM>233548867947</GSM><sender>Boto</sender><SMSText>'+vcodegen+'</SMSText></Body></Request>'
+                 body='<?xml version="1.0" encoding="utf-8"?><Request><username>opoku</username><password>ba33911357</password><type>longSMS</type><GSM>233548867947</GSM><sender>Boto</sender><SMSText>'+vcodegen+'</SMSText></Request>'
                 request.post(
                     {url:'http://107.20.199.106/api/v3/sendsms/plain?',
                     body : req.rawBody,
