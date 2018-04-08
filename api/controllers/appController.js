@@ -123,11 +123,11 @@ exports.createWallet = function(req, res) {
        }
        else{
            
-           var json = JSON.parse(body);
+           //var json = JSON.parse(body);
            
 
-          console.log(json)
-          res.send(json)
+          console.log(body)
+          res.send(body)
        }
        })
 }
