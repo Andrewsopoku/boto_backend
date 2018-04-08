@@ -125,7 +125,7 @@ exports.createWallet = function(req, res) {
    else {
     
 
-
+var pom;
 
 
        axios.post('http://5.150.236.20:8081/operator/wallets', {
@@ -136,7 +136,7 @@ exports.createWallet = function(req, res) {
         console.log(response);
 
        
-
+pom=response
 
 
       axios({
@@ -149,7 +149,7 @@ exports.createWallet = function(req, res) {
       }) .then(function (response1) {
         console.log(response1.data);
        
-        res.send({id: response, address: response1})
+        res.send({id: pom, address: response1})
       })
       .catch(function (error) {
         console.log(error);
