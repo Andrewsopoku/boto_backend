@@ -136,7 +136,7 @@ var pom={};
         console.log(response);
 
        
-pom['id']=response
+pom['id']=response.data
 
 
       axios({
@@ -148,7 +148,7 @@ pom['id']=response
         }
       }) .then(function (response1) {
         console.log(response1.data);
-       pom['address']=response1;
+       pom['address']=response1.data;
         res.send(pom)
       })
       .catch(function (error) {
