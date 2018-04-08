@@ -2,6 +2,7 @@ var UsersInfo = require('../models/appModel.js');
 
 var crypto = require('crypto')
 var axios = require("axios");
+var request=require("request")
 algorithm = 'aes-256-ctr';
 password = 'd6F3Efeq';
 
