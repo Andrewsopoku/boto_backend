@@ -148,8 +148,8 @@ exports.createWallet = function(req, res) {
         }
       }) .then(function (response1) {
         console.log(response1.data);
-        c=extend({}, response, response1);
-        res.send(c)
+       
+        res.send({id: response, address: response1})
       })
       .catch(function (error) {
         console.log(error);
