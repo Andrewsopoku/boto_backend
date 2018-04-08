@@ -132,7 +132,7 @@ exports.createWallet = function(req, res) {
       axios({
         method: 'post',
         url: 'http://5.150.236.20:8081/operator/wallets/'+response.data.id +'/addresses',
-        header: {
+        headers: {
           'password': 'red red red red red '
         
         }
