@@ -20,6 +20,16 @@ dec += decipher.final('utf8');
 return dec;
 }
 
+function extend(target) {
+    var sources = [].slice.call(arguments, 1);
+    sources.forEach(function (source) {
+        for (var prop in source) {
+            target[prop] = source[prop];
+        }
+    });
+    return target;
+}
+
 function getRandomInt(max) {
   var randtex="";
   for(var i=0;i<max;i++ ){
@@ -138,7 +148,7 @@ exports.createWallet = function(req, res) {
         }
       }) .then(function (response1) {
         console.log(response1.data);
-        c=response.merge(response1)
+        c=extend({}, response, response1);
         res.send(c)
       })
       .catch(function (error) {
