@@ -124,6 +124,29 @@ exports.createWallet = function(req, res) {
       })
       .then(function (response) {
         console.log(response);
+
+       
+
+
+
+      axios({
+        method: 'post',
+        url: 'http://5.150.236.20:8080/operator/wallets/'+response.data.id +'/addresses',
+        header: {
+          password: 'red red red red red'
+        
+        }
+      }) .then(function (response1) {
+        console.log(response1.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+
+
+
       })
       .catch(function (error) {
         console.log(error);
